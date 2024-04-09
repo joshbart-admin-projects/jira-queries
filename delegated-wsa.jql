@@ -1,0 +1,10 @@
+project in ("Western State Agency")
+AND status = "Waiting For" 
+AND (
+    updatedDate <= startOfDay()
+    OR (
+        labels = delegation_checkin_weekly
+        AND updatedDate <= startOfWeek()
+    )
+)
+ORDER BY updated ASC
