@@ -1,6 +1,6 @@
-status IN (Active) 
+project IN ("Western State Agency")
 AND duedate IS EMPTY 
-AND project IN ("Western State Agency") 
+AND status IN (Active) 
 AND (
     type = Task 
     OR (
@@ -21,4 +21,4 @@ AND (
             )
         )
     )
-) ORDER BY type ASC, updated DESC
+) ORDER BY type ASC, originalEstimate ASC, updated DESC
