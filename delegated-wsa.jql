@@ -2,6 +2,10 @@ project in ("Western State Agency")
 AND status = "Waiting For" 
 AND (
     (
+        labels = delegation_checkin_monthly
+        AND updatedDate <= startOfMonth()
+    )
+    OR (
         labels = delegation_checkin_weekly
         AND updatedDate <= startOfWeek()
     )
