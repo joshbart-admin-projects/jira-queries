@@ -10,7 +10,7 @@ AND (
         AND updatedDate <= startOfWeek()
     )
     OR (
-        labels NOT IN (delegation_checkin_weekly)
+        labels NOT IN (delegation_checkin_monthly, delegation_checkin_weekly)
         AND updatedDate <= startOfDay()
     )
 )
