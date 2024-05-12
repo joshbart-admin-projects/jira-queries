@@ -1,2 +1,2 @@
 status = Inbox
-ORDER BY due ASC, updated ASC
+ORDER BY due ASC, updated DESC
