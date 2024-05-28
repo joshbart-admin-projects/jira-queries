@@ -1,0 +1,3 @@
+status = Inbox
+AND project = "Western State Agency"
+ORDER BY due ASC, updated DESC
