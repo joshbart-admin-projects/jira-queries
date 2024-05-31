@@ -11,6 +11,9 @@ AND (
     ) OR (
         "Frequency[Labels]" = weekly
         AND updatedDate <= startOfWeek()
+    ) OR (
+        "Frequency[Labels]" = monthly
+        AND updatedDate <= startOfMonth()
     )
 )
 ORDER BY cf[10055] ASC, due ASC
