@@ -1,4 +1,4 @@
 status in (Later, "To Calendar") 
 AND "Start date[Date]" <= startOfDay() 
 AND project NOT IN ("Western State Agency") 
-ORDER BY cf[10015] ASC, due ASC, updated DESC
+ORDER BY cf[10015] ASC, cf[10055] ASC, due ASC, updated DESC
