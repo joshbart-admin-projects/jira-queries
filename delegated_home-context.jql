@@ -1,1 +1,16 @@
-status = "Waiting For" AND updatedDate <= startOfDay() AND (project not in ("Western State Agency", "North Dakota Air National Guard") OR (project = "Western State Agency" AND labels = Home_Work) OR (project = "North Dakota Air National Guard" AND (due <= endOfDay("+1M") OR labels = Home_Work))) ORDER BY updated ASC
+status = "Waiting For" 
+AND updatedDate <= startOfDay() 
+AND (
+    project not in ("Western State Agency", "North Dakota Air National Guard") 
+    OR (
+        project = "Western State Agency" 
+        AND labels = Home_Work
+    ) OR (
+        project = "North Dakota Air National Guard" 
+        AND (
+            due <= endOfDay("+1M") 
+            OR labels = Home_Work
+        )
+    )
+) 
+ORDER BY updated ASC
