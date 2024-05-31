@@ -1,6 +1,13 @@
 status = "Waiting For" 
-AND updatedDate <= startOfDay() 
 AND (
+    (
+        "Frequency[Labels]" IS EMPTY
+        AND updatedDate <= startOfDay()
+    ) OR (
+        "Frequency[Labels]" = "weekly"
+        AND updatedDate <= startOfWeek()
+    )
+) AND (
     project not in ("Western State Agency", "North Dakota Air National Guard") 
     OR (
         project = "Western State Agency" 
