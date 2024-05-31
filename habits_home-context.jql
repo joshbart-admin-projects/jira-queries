@@ -1,0 +1,16 @@
+status = Active
+AND type = Habit
+AND project NOT IN ("Western State Agency")
+AND (
+    (
+        "Frequency[Labels]" IS EMPTY
+        AND updatedDate <= startOfDay()
+    ) OR (
+        "Frequency[Labels]" = semi-weekly
+        AND updatedDate <= startOfDay(-3)
+    ) OR (
+        "Frequency[Labels]" = weekly
+        AND updatedDate <= startOfWeek()
+    )
+)
+ORDER BY due ASC, updated ASC
