@@ -13,4 +13,4 @@ AND (
         AND updatedDate <= startOfWeek()
     )
 )
-ORDER BY due ASC, updated ASC
+ORDER BY cf[10055] ASC, due ASC
