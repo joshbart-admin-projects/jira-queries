@@ -1,0 +1,3 @@
+project = "Home, Vehicles, Finances, & Family"
+AND "Household Function[Select List (multiple choices)]" = "Homestead Upkeep"
+AND "Room[Checkboxes]" IN (EMPTY)
