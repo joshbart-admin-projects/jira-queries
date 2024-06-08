@@ -6,6 +6,9 @@ AND (
         "Frequency[Labels]" IS EMPTY
         AND updatedDate <= startOfDay()
     ) OR (
+        "Frequency[Labels]" = bi-daily
+        AND updatedDate <= startOfDay(-1)
+    ) OR (
         "Frequency[Labels]" = semi-weekly
         AND updatedDate <= startOfDay(-3)
     ) OR (
@@ -16,4 +19,4 @@ AND (
         AND updatedDate <= startOfMonth()
     )
 )
-ORDER BY cf[10055] ASC, due ASC
+ORDER BY cf[10055] ASC, due ASC, cf[10054] DESC
