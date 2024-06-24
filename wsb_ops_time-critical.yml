@@ -1,0 +1,13 @@
+---
+Name: WSB Ops Time-Critical
+Description: Supports a widget on the WSB IST Operations Dashboard. Used to focus morning work efforts on time-sensitive project work. 
+Viewers:
+  - My organization
+Editors:
+  - Joshua Bartholomew
+Query: |-
+project IN ("Western State Agency")
+AND type NOT IN (Task, Habit)
+AND status IN (Active)
+AND updatedDate <= startOfDay()
+ORDER BY duedate ASC, cf[10055] ASC
