@@ -1,0 +1,65 @@
+---
+id: 10205
+name: 03.02 Work In Progress (MGDM Ops Dashboard)
+description: A filter for displaying WIP items on the Midland Cloud Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  (
+    (
+      type IN (Task)
+      AND status IN ("Work In Progress", "Meeting With")
+    )
+    OR (
+      (
+        (
+          type IN (Habit) 
+          AND status IN ("Work In Progress", "Meeting With", "Delegated To")
+        )
+        OR (
+          type IN (Task) 
+          AND status IN ("Delegated To")
+        )
+      )
+      AND (
+        (
+          updatedDate <= startOfDay(-7)
+          AND (
+            "Frequency[Labels]" IS EMPTY
+            OR "Frequency[Labels]" = weekly
+          )
+        )
+        OR (
+          updatedDate <= startOfDay()
+          AND "Frequency[Labels]" = daily
+        )
+        OR (
+          updatedDate <= startOfDay(-1)
+          AND "Frequency[Labels]" = bi-daily
+        )
+        OR (
+          updatedDate <= startOfDay(-3)
+          AND "Frequency[Labels]" = semi-weekly
+        )
+        OR (
+          updatedDate <= startOfDay(-14)
+          AND "Frequency[Labels]" = bi-weekly
+        )
+        OR (
+          updatedDate <= startOfDay(-30)
+          AND "Frequency[Labels]" = monthly
+        )
+      )
+    )
+  ) 
+  AND project IN ("Midland Garage Door Manufacturing", "Career Opportunity Development", "Dakota State University", "FMInfoSec Meetup","Professional & Technical Growth")
+  ORDER BY duedate ASC, cf[10055] ASC, updated DESC'
