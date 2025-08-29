@@ -1,0 +1,24 @@
+project IN ("Western State Agency")
+AND duedate IS EMPTY 
+AND status IN (Active) 
+AND (
+    type = Task 
+    OR (
+        type = Habit 
+        AND (
+            updatedDate <= startOfDay()
+            OR (
+                labels = weekly_habit 
+                AND updatedDate <= startOfWeek()
+            )
+            OR (
+                labels = monthly_habit 
+                AND updatedDate <= startOfMonth()
+            )
+            OR (
+                labels = yearly_habit 
+                AND updatedDate <= startOfYear()
+            )
+        )
+    )
+) ORDER BY type ASC, originalEstimate ASC, updated DESC

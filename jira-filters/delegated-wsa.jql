@@ -1,0 +1,17 @@
+project in ("Western State Agency")
+AND status = "Waiting For" 
+AND (
+    (
+        cf[10054] = monthly
+        AND updatedDate <= startOfMonth()
+    )
+    OR (
+        cf[10054] = weekly
+        AND updatedDate <= startOfWeek()
+    )
+    OR (
+        cf[10054] = EMPTY
+        AND updatedDate <= startOfDay()
+    )
+)
+ORDER BY updated ASC
