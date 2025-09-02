@@ -1,0 +1,8 @@
+# Core dependencies
+requests==2.32.3
+PyYAML==6.0.2
+
+# Developer tools (optional but handy)
+black==24.8.0
+pylint==3.2.6
+
