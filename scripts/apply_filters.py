@@ -6,6 +6,7 @@ import logging
 
 # Set up logging for better visibility
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s")
+logger = logging.getLogger(__name__)
 
 # Jira credentials and base URL
 JIRA_USER_EMAIL = os.getenv("JIRA_USER_EMAIL")
@@ -22,7 +23,7 @@ def load_yaml_filters():
         with open(file, 'r') as f:
             filter_data = yaml.safe_load(f)
             filters.append(filter_data)
-            logging.info(f"Loaded filter: {filter_data['name']} from {file}")
+            logger.info(f"Loaded filter: {filter_data['name']} from {file}")
     return filters
 
 def validate_filter(filter_data):
@@ -30,7 +31,7 @@ def validate_filter(filter_data):
     required_fields = ['id', 'name', 'jql']
     for field in required_fields:
         if field not in filter_data:
-            logging.error(f"Filter {filter_data['name']} missing required field: {field}")
+            logger.error(f"Filter {filter_data['name']} missing required field: {field}")
             return False
     return True
 
@@ -46,9 +47,9 @@ def update_filter(filter_data):
     response = requests.put(url, auth=auth, json=payload)
     
     if response.status_code == 200:
-        logging.info(f"Successfully updated filter: {filter_data['name']}")
+        logger.info(f"Successfully updated filter: {filter_data['name']}")
     else:
-        logging.error(f"Failed to update filter {filter_data['name']}. Response: {response.status_code} {response.text}")
+        logger.error(f"Failed to update filter {filter_data['name']}. Response: {response.status_code} {response.text}")
 
 def main():
     filters = load_yaml_filters()
