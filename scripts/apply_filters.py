@@ -5,7 +5,7 @@ import glob
 import logging
 
 # Set up logging for better visibility
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s")
 
 # Jira credentials and base URL
 JIRA_USER_EMAIL = os.getenv("JIRA_USER_EMAIL")
