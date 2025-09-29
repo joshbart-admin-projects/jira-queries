@@ -19,7 +19,7 @@ auth = (JIRA_USER_EMAIL, JIRA_API_TOKEN)
 def load_yaml_filters():
     filters = []
     # Get all YAML files in the filters directory
-    for file in glob.glob("filters/*.yaml"):
+    for file in glob.glob("jira-filters/*.yml"):
         with open(file, 'r') as f:
             filter_data = yaml.safe_load(f)
             filters.append(filter_data)
