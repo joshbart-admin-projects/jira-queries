@@ -16,6 +16,10 @@ JIRA_BASE_URL = os.getenv("JIRA_BASE_URL")
 
 # Authenticate using basic auth
 auth = HTTPBasicAuth(JIRA_USER_EMAIL, JIRA_API_TOKEN)
+headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+}
 
 def load_yaml_filters():
     filters = []
