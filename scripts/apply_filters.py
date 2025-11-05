@@ -1,5 +1,6 @@
 import os
 import requests
+from requests.auth import HTTPBasicAuth
 import yaml
 import glob
 import logging
@@ -14,7 +15,7 @@ JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")
 JIRA_BASE_URL = os.getenv("JIRA_BASE_URL")
 
 # Authenticate using basic auth
-auth = (JIRA_USER_EMAIL, JIRA_API_TOKEN)
+auth = HTTPBasicAuth(JIRA_USER_EMAIL, JIRA_API_TOKEN)
 
 def load_yaml_filters():
     filters = []
