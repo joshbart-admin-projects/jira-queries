@@ -57,11 +57,8 @@ def update_filter(filter_data):
     # else:
     #     logger.error(f"Failed to update filter {filter_data['name']}. Response: {response.status_code} {response.text}")
 
-def main():
+if __name__ == "__main__":
     filters = load_yaml_filters()
     for filter_data in filters:
         if validate_filter(filter_data):
             update_filter(filter_data)
-
-if __name__ == "__main__":
-    main()
