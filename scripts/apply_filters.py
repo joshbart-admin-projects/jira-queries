@@ -4,6 +4,7 @@ from requests.auth import HTTPBasicAuth
 import yaml
 import glob
 import logging
+import json
 
 # Set up logging for better visibility
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s")
@@ -42,11 +43,11 @@ def validate_filter(filter_data):
 
 def update_filter(filter_data):
     url = f"{JIRA_BASE_URL}/rest/api/3/filter/{filter_data['id']}"
-    payload = {
+    payload = json.dumps({
         "name": filter_data["name"],
         "description": filter_data.get("description", ""),
         "jql": filter_data["jql"]
-    }
+    })
     
     # Make the PUT request to update the filter
     response = requests.put(url, auth=auth, json=payload)
