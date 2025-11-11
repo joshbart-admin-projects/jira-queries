@@ -43,19 +43,19 @@ def validate_filter(filter_data):
 
 def update_filter(filter_data):
     url = f"{JIRA_BASE_URL}/rest/api/3/filter/{filter_data['id']}"
-    payload = json.dumps({
-        "name": filter_data["name"],
-        "description": filter_data.get("description", ""),
-        "jql": filter_data["jql"]
-    })
+    # payload = json.dumps({
+    #     "name": filter_data["name"],
+    #     "description": filter_data.get("description", ""),
+    #     "jql": filter_data["jql"]
+    # })
     
-    # Make the PUT request to update the filter
-    response = requests.put(url, auth=auth, json=payload)
+    # # Make the PUT request to update the filter
+    # response = requests.put(url, auth=auth, json=payload)
     
-    if response.status_code == 200:
-        logger.info(f"Successfully updated filter: {filter_data['name']}")
-    else:
-        logger.error(f"Failed to update filter {filter_data['name']}. Response: {response.status_code} {response.text}")
+    # if response.status_code == 200:
+    #     logger.info(f"Successfully updated filter: {filter_data['name']}")
+    # else:
+    #     logger.error(f"Failed to update filter {filter_data['name']}. Response: {response.status_code} {response.text}")
 
 def main():
     filters = load_yaml_filters()
