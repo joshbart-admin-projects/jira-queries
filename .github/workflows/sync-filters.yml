@@ -6,4 +6,7 @@ jobs:
   update-filters: 
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v4
+      - name: Copy main branch to runner
+        uses: actions/checkout@v4
+        with:
+          ref: main
