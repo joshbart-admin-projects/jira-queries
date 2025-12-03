@@ -5,6 +5,10 @@ on:
 jobs: 
   update-filters: 
     runs-on: ubuntu-latest
+    env:
+      JIRA_USER_EMAIL: "example@example.com"
+      JIRA_API_TOKEN: "RaNd0mTeXtStR1nG"
+      JIRA_BASE_URL: "https://random.atlassian.com"
     steps: 
       - name: Copy main branch to runner
         uses: actions/checkout@v4
