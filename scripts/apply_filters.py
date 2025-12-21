@@ -16,8 +16,8 @@ JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")
 JIRA_BASE_URL = os.getenv("JIRA_BASE_URL")
 
 # Authenticate using basic auth
-auth = HTTPBasicAuth(JIRA_USER_EMAIL, JIRA_API_TOKEN)
-headers = {
+auth_credentials = HTTPBasicAuth(JIRA_USER_EMAIL, JIRA_API_TOKEN)
+request_headers = {
     "Accept": "application/json",
     "Content-Type": "application/json"
 }
@@ -50,7 +50,7 @@ def update_filter(filter_data):
     })
     
     # Make the PUT request to update the filter
-    response = requests.put(url, auth=auth, json=payload)
+    response = requests.put(url, auth=auth_credentials, headers=request_headers, json=payload)
     
     if response.status_code == 200:
         logger.info(f"Successfully updated filter: {filter_data['name']}")
