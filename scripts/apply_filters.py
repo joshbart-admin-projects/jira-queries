@@ -32,6 +32,10 @@ def load_yaml_filters():
             logger.info(f"Loaded filter: {filter_data['name']} from {file}")
     return filters
 
+def scrub_payload_data(data):
+    scrubbed_data = " ".join(data.split())
+    return scrubbed_data
+
 def validate_filter(filter_data):
     # Basic validation (you can add more checks for JQL syntax or other fields)
     required_fields = ['id', 'name', 'jql']
