@@ -47,11 +47,10 @@ def validate_filter(filter_data):
 
 def update_filter(filter_data):
     url = f"{JIRA_BASE_URL}/rest/api/3/filter/{filter_data['id']}"
-    payload = json.dumps({
+    payload = {
         "name": filter_data["name"],
-        "description": filter_data.get("description", ""),
         "jql": filter_data["jql"]
-    })
+    }
     
     # Make the PUT request to update the filter
     response = requests.put(url, auth=auth_credentials, headers=request_headers, json=payload)
