@@ -17,18 +17,12 @@ jql: >-
   (
     (
       type IN (Task)
-      AND status IN ("Work In Progress", "Meeting With")
+      AND status IN ("Work In Progress", "Meeting With", "Delegated To")
     )
     OR (
       (
-        (
-          type IN (Habit) 
-          AND status IN ("Work In Progress", "Meeting With", "Delegated To")
-        )
-        OR (
-          type IN (Task) 
-          AND status IN ("Delegated To")
-        )
+        type IN (Habit) 
+        AND status IN ("Work In Progress", "Meeting With", "Delegated To")
       )
       AND (
         (
