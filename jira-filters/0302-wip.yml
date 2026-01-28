@@ -55,11 +55,14 @@ jql: >-
       )
     )
   ) 
-  AND project IN (
-    "Midland Garage Door Manufacturing",
-    "Career Opportunity Development",
-    "Dakota State University",
-    "FMInfoSec Meetup",
-    "Professional & Technical Growth"
+  AND (
+    project IN (
+      "Midland Garage Door Manufacturing",
+      "Career Opportunity Development",
+      "Dakota State University",
+      "FMInfoSec Meetup",
+      "Professional & Technical Growth"
+    )
+    OR Labels IN ("Work_Hours")
   )
   ORDER BY duedate ASC, cf[10055] ASC, updated DESC
