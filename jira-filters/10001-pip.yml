@@ -1,0 +1,20 @@
+---
+id: 10731
+name: 100.10 Projects in Progress
+description: A filter for displaying WIP items on the BartCrew Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  type NOT IN (Task, Habit) 
+  AND status IN ("Delegated To", "Meeting With", "Work In Progress") 
+  AND project NOT IN ("Midland Garage Door Manufacturing") 
+  ORDER BY key ASC
