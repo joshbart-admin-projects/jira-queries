@@ -17,4 +17,4 @@ jql: >-
   type NOT IN (Task, Habit) 
   AND status IN ("Delegated To", "Meeting With", "Work In Progress") 
   AND project NOT IN ("Midland Garage Door Manufacturing") 
-  ORDER BY key ASC
+  ORDER BY duedate ASC, cf[10055] ASC, created ASC
