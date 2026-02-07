@@ -1,0 +1,73 @@
+---
+id: 10467
+name: 100.11 Next Actions List
+description: A filter for displaying basic work items needing to be completed on the BartCrew Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  (
+    (
+      status IN ("Work In Progress", "Meeting With", "Delegated To", "Next")
+      AND type IN ("Task", "Idea")
+    )
+    OR (
+      (
+        status IN ("Work In Progress", "Meeting With", "Delegated To", "Next")
+        AND type IN ("Habit")
+      )
+      AND (
+        (
+          updatedDate <= startOfDay(-7)
+          AND (
+            "Frequency[Labels]" IS EMPTY
+            OR "Frequency[Labels]" = weekly
+          )
+        )
+        OR (
+          updatedDate <= startOfDay()
+          AND "Frequency[Labels]" = daily
+        )
+        OR (
+          updatedDate <= startOfDay(-1)
+          AND "Frequency[Labels]" = bi-daily
+        )
+        OR (
+          updatedDate <= startOfDay(-3)
+          AND "Frequency[Labels]" = semi-weekly
+        )
+        OR (
+          updatedDate <= startOfDay(-14)
+          AND "Frequency[Labels]" = biweekly
+        )
+        OR (
+          updatedDate <= startOfDay(-30)
+          AND "Frequency[Labels]" = monthly
+        )
+      )
+    )
+  ) 
+  AND (
+    project not in ("Western State Agency", "North Dakota Air National Guard", "Midland Garage Door Manufacturing") 
+    OR (
+      project = "North Dakota Air National Guard" 
+      AND (
+          due <= endOfDay("+1M")
+          OR duedate <= endOfDay("+1M") 
+          OR labels = Home_Work
+      )
+    ) 
+    OR (
+      project = "Midland Garage Door Manufacturing"
+      AND labels = Home_Work
+    )
+  ) 
+  ORDER BY duedate ASC, cf[10055] ASC, updated ASC
