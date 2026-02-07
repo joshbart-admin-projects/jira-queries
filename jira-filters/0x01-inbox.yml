@@ -1,7 +1,7 @@
 ---
 id: 10632
-name: 0X.01 Inbox
+name: 000.01 Inbox
 description: A unified filter of all new tasks across areas of focus.
 jql: >-
   status = Inbox
-  ORDER BY created DESC
+  ORDER BY duedate ASC, cf[10055] ASC, created DESC
