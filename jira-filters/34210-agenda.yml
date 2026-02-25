@@ -1,0 +1,11 @@
+---
+id: 10765
+name: 341.11 One-on-one agenda for Jet Mariano
+description: Agenda items for one-on-one meetings with Jet Mariano
+jql: >-
+  project = "Midland Garage Door Manufacturing" 
+  AND (
+    "For Meeting With[Labels]" IN (Jet.Mariano, Jet.Mariano:O3, Jet_Mariano, Jet_Mariano:O3)
+    OR "Given to[Labels]" IN (Jet.Mariano, Jet_Mariano)
+  ) 
+  ORDER BY status DESC, updated ASC
