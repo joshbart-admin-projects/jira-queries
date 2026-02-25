@@ -1,0 +1,11 @@
+---
+id: 10764
+name: 341.11 One-on-one agenda for John Jolly
+description: Agenda items for one-on-one meetings with John Jolly
+jql: >-
+  project = "Midland Garage Door Manufacturing" 
+  AND (
+    "For Meeting With[Labels]" IN (John.Jolly, John.Jolly:O3, John_Jolly, John_Jolly:O3)
+    OR "Given to[Labels]" IN (John.Jolly, John_Jolly)
+  ) 
+  ORDER BY status DESC, updated ASC
