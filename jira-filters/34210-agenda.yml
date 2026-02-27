@@ -1,6 +1,6 @@
 ---
 id: 10765
-name: 341.11 One-on-one agenda for Jet Mariano
+name: 342.10 One-on-one agenda for Jet Mariano
 description: Agenda items for one-on-one meetings with Jet Mariano
 jql: >-
   project = "Midland Garage Door Manufacturing" 
