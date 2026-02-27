@@ -1,0 +1,11 @@
+---
+id: 10798
+name: 344.10 One-on-one agenda for Nick Smith
+description: Agenda items for one-on-one meetings with Nick Smith
+jql: >-
+  project = "Midland Garage Door Manufacturing" 
+  AND (
+    "For Meeting With[Labels]" IN (Nick.Smith, Nick.Smith:O3, Nick_Smith, Nick_Smith:O3)
+    OR "Given to[Labels]" IN (Nick.Smith, Nick_Smith)
+  ) 
+  ORDER BY status DESC, updated ASC
