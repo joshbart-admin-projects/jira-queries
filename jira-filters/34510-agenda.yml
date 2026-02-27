@@ -1,0 +1,11 @@
+---
+id: 10799
+name: 345.10 One-on-one agenda for Mike Vogel
+description: Agenda items for one-on-one meetings with Mike Vogel
+jql: >-
+  project = "Midland Garage Door Manufacturing" 
+  AND (
+    "For Meeting With[Labels]" IN (Mike.Vogel, Mike.Vogel:O3, Mike_Vogel, Mike_Vogel:O3)
+    OR "Given to[Labels]" IN (Mike.Vogel, Mike_Vogel)
+  ) 
+  ORDER BY status DESC, updated ASC
