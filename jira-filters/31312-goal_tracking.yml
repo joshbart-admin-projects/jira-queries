@@ -1,0 +1,19 @@
+---
+id: 10832
+name: 313.12 Annual Goal Planning & Tracking
+description: A filter for planning and tracking annual performance goals at Midland Garage Door Manufacturing.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  labels in (mgdm_performance_goal)
+  AND duedate > startOfYear()
+  AND duedate <= endOfYear()
