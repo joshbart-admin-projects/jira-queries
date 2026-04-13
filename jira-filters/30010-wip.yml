@@ -58,11 +58,7 @@ jql: >-
   ) 
   AND (
     project IN (
-      "Midland Garage Door Manufacturing",
-      "Career Opportunity Development",
-      "Dakota State University",
-      "FMInfoSec Meetup",
-      "Professional & Technical Growth"
+      "Midland Garage Door Manufacturing"
     )
     OR Labels IN ("Work_Hours")
   )
