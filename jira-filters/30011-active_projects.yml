@@ -19,4 +19,4 @@ jql: >-
     AND type NOT IN (Habit, Task)
   )
   AND project IN ("Midland Garage Door Manufacturing")
-  ORDER BY cf[10055] ASC, duedate ASC, updated ASC
+  ORDER BY cf[10055] ASC, duedate ASC, updated ASC 
