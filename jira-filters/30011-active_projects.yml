@@ -1,0 +1,22 @@
+---
+id: 10534
+name: 300.11 Active Projects List
+description: A filter for displaying active projects on the Midland Cloud Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  (
+    status IN ("Work In Progress", "Meeting With", "Delegated To")
+    AND type NOT IN (Habit, Task)
+  )
+  AND project IN ("Midland Garage Door Manufacturing")
+  ORDER BY cf[10055] ASC, duedate ASC, updated ASC
