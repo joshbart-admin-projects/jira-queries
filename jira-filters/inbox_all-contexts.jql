@@ -1,2 +1,0 @@
-status = Inbox
-ORDER BY due ASC, updated DESC
