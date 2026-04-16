@@ -18,7 +18,10 @@ jql: >-
     (
       type NOT IN (Habit)
       AND status IN ("Work In Progress", "Meeting With", "Delegated To")
-      AND issueLinkType NOT IN ("is executed through")
+      AND (
+        issueLinkType NOT IN ("is executed through")
+        OR issueLinkType IS EMPTY
+      )
     )
     OR (
       (
