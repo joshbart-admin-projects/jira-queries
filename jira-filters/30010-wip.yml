@@ -22,6 +22,10 @@ jql: >-
         issueLinkType NOT IN ("is executed through")
         OR issueLinkType IS EMPTY
       )
+      AND (
+        "Follow up after[Date]" <= startOfDay()
+        OR "Follow up after[Date]" IS EMPTY
+      )
     )
     OR (
       (
