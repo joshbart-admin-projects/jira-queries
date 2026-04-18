@@ -69,4 +69,4 @@ jql: >-
     )
     OR Labels IN ("Work_Hours")
   )
-  ORDER BY duedate ASC, cf[10055] ASC, updated DESC
+  ORDER BY cf[10055] ASC, duedate ASC, updated DESC
