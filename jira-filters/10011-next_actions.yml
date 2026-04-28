@@ -16,12 +16,12 @@ sharePermissions:
 jql: >-
   (
     (
-      status IN ("Work In Progress", "Meeting With", "Delegated To", "Next")
+      status IN ("Work In Progress", Scheduled, "Delegated To", "Next")
       AND type IN ("Task", "Idea")
     )
     OR (
       (
-        status IN ("Work In Progress", "Meeting With", "Delegated To", "Next")
+        status IN ("Work In Progress", Scheduled, "Delegated To", "Next")
         AND type IN ("Habit")
       )
       AND (

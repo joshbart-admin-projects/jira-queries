@@ -15,6 +15,6 @@ sharePermissions:
   - type: authenticated
 jql: >-
   type NOT IN (Task, Habit) 
-  AND status IN ("Delegated To", "Meeting With", "Work In Progress") 
+  AND status IN ("Delegated To", Scheduled, "Work In Progress") 
   AND project NOT IN ("Midland Garage Door Manufacturing") 
   ORDER BY cf[10055] ASC, duedate ASC, created ASC

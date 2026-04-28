@@ -17,7 +17,7 @@ jql: >-
   (
     (
       type NOT IN (Habit)
-      AND status IN ("Work In Progress", "Meeting With", "Delegated To")
+      AND status IN ("Work In Progress", Scheduled, "Delegated To")
       AND (
         issueLinkType NOT IN ("is executed through")
         OR issueLinkType IS EMPTY
@@ -30,7 +30,7 @@ jql: >-
     OR (
       (
         type IN (Habit) 
-        AND status IN ("Work In Progress", "Meeting With", "Delegated To")
+        AND status IN ("Work In Progress", Scheduled, "Delegated To")
       )
       AND (
         (

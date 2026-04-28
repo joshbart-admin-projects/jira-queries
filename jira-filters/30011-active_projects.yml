@@ -15,7 +15,7 @@ sharePermissions:
   - type: authenticated
 jql: >-
   (
-    status IN ("Work In Progress", "Meeting With", "Delegated To")
+    status IN ("Work In Progress", Scheduled, "Delegated To")
     AND type NOT IN (Habit, Task)
   )
   AND project IN ("Midland Garage Door Manufacturing")
