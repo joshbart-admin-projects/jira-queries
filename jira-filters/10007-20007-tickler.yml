@@ -1,0 +1,28 @@
+---
+id: 10046
+name: 100.07 / 200.07 Tickler
+description: A filter for displaying Tickler items on the BartCrew Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  project NOT IN ("Western State Agency", "Midland Garage Door Manufacturing") 
+  AND (
+    (
+      status in ("Do Later") 
+      AND "Start date[Date]" <= startOfDay()
+    )
+    OR (
+      status in (Scheduled)
+      AND "Scheduled For[Time stamp]" <= now()
+    )
+  ) 
+  ORDER BY cf[10015] ASC, cf[10055] ASC, due ASC, updated DESC
