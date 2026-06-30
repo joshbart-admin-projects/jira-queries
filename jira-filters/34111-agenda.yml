@@ -5,7 +5,7 @@ description: Agenda items for one-on-one meetings with John Jolly
 jql: >-
   project = "Midland Garage Door Manufacturing" 
   AND (
-    "For Meeting With[Labels]" IN (John.Jolly, John.Jolly:O3, John_Jolly, John_Jolly:O3)
-    OR "Given to[Labels]" IN (John.Jolly, John_Jolly)
+    "For Meeting With[Labels]" IN (john-jolly, john-jolly-o3)
+    OR "Given to[Labels]" IN (john-jolly)
   ) 
   ORDER BY status DESC, updated ASC
