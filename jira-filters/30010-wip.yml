@@ -30,7 +30,7 @@ jql: >-
     OR (
       (
         type IN (Habit) 
-        AND status IN ("Work In Progress", Scheduled, Delegated)
+        AND status IN ("Ready / Active", "Work In Progress", Scheduled, Delegated)
       )
       AND (
         (
