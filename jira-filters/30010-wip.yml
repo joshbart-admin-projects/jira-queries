@@ -23,8 +23,8 @@ jql: >-
         OR issueLinkType IS EMPTY
       )
       AND (
-        "Follow up after[Date]" <= startOfDay()
-        OR "Follow up after[Date]" IS EMPTY
+        "Follow-Up Date[Date]" <= startOfDay()
+        OR "Follow-Up Date[Date]" IS EMPTY
       )
     )
     OR (
