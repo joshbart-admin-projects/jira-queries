@@ -1,0 +1,27 @@
+---
+id: 10931
+name: 300.13 Delegated Tasks Which Need Follow-up
+description: A filter for displaying items which require follow-up on the Midland Cloud Operations dashboard.
+editPermissions: 
+  # Jira Admin
+  - type: user
+    user: 
+      accountId: ${{ secrets.JIRA_ADMIN_ACCOUNT_ID }}
+  # Josh Bartholomew
+  - type: user
+    user: 
+      accountId: ${{ secrets.JOSH_BARTHOLOMEW_ACCOUNT_ID }}
+sharePermissions:
+  - type: authenticated
+jql: >-
+  (
+    status IN (Delegated) 
+    AND "Follow-Up Date[Date]" <= endOfDay()
+  )
+  AND (
+    project IN (
+      "Midland Garage Door Manufacturing"
+    )
+    OR Labels IN ("Work_Hours")
+  )
+  ORDER BY cf[10198] ASC, duedate ASC, updated ASC
